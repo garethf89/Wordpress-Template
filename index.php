@@ -3,17 +3,12 @@
     <div id="content" class="fixed-nav row">
                
             <!-- Header -->
-
-            <div class="row">
-                <div class="large-12 columns">
-                  <h1>Header here</h1>
-                  <hr>
-                </div>
+            <div class="large-12 columns">
+                <h1>Site name</h1>
+                <hr>
             </div>
                 
-            <!-- Main -->    
-            <div class="row">
-                
+            <!-- Main -->                    
             <main id="main" class="large-9 columns" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">  
                                 
                 <!-- LOOP -->
@@ -38,8 +33,6 @@
                         <p class="footer-comment-count">
                              <?php comments_number( __( '<span>No</span> Comments', 'bonestheme' ), __( '<span>One</span> Comment', 'bonestheme' ), __( '<span>%</span> Comments', 'bonestheme' ) );?>
                         </p>
-
-                    <?php printf( '<p class="footer-category">' . __('filed under', 'bonestheme' ) . ': %1$s</p>' , get_the_category_list(', ') ); ?>
 
                       <?php the_tags( '<p class="footer-tags tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
 
@@ -69,8 +62,6 @@
                 </main>    
                 
             <?php get_sidebar(); ?>    
-
-        </div>
 
     </div>
 

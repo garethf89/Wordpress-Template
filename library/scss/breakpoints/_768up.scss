@@ -1,22 +1,23 @@
-/******************************************************************
-Site Name:
-Author:
+/* Comments */
+.comment_content{
+   padding-left:4em;
+}
 
-Stylesheet: Tablet & Small Desktop Stylesheet
+.comment{
+    margin:0 0 2em
+}
 
-******************************************************************/
+.avatar{
+    display: inline-block;
+    margin:0 1em 0 0;
+}
 
+.comment-author span{
+    vertical-align: top;
+    display: inline-block;   
+}
 
-/*********************
-GENERAL STYLES
-*********************/
-
-body {}
-
-/*********************
-LAYOUT & GRID STYLES
-*********************/
-
-.wrap {
-	width: 760px;
+.comment-author span time{
+    display: block;   
+    font-size: 0.8em;
 }

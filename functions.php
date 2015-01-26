@@ -1,19 +1,10 @@
 <?php
-/*
-Author: Eddie Machado
-URL: http://themble.com/bones/
-
-This is where you can drop your custom functions or
-just edit things like thumbnail sizes, header images,
-sidebars, comments, ect.
-*/
 
 // LOAD BONES CORE (if you remove this, the theme will break)
 require_once( 'library/bones.php' );
 
 // CUSTOMIZE THE WORDPRESS ADMIN (off by default)
  require_once( 'library/admin.php' );
-
 
 /*********************
 SCRIPTS & ENQUEUEING
@@ -43,8 +34,6 @@ function load_styles_scripts() {
       
         wp_register_script( 'fastclick', get_stylesheet_directory_uri() . '/library/bower_components/foundation/js/vendor/fastclick.js','', '', true );
       
-        wp_register_script( 'foundation', get_stylesheet_directory_uri() . '/library/bower_components/foundation/js/foundation/foundation.js', '', '', true );
-          
 		//Main JS
 		wp_register_script( 'main-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
 
@@ -56,11 +45,9 @@ function load_styles_scripts() {
 		$wp_styles->add_data( 'bones-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
       
         //Scripts
-
 		wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'mordernizr' );
         wp_enqueue_script( 'fastclick' );
-        wp_enqueue_script( 'foundation' );
 		wp_enqueue_script( 'main-js' );
 
 	}
@@ -72,7 +59,7 @@ LAUNCH BONES
 Let's get everything up and running.
 *********************/
 
-function bones_ahoy() {
+function start_up_theme() {
 
   // let's get language support going, if you need it
   load_theme_textdomain( 'bonestheme', get_template_directory() . '/library/translation' );
@@ -103,14 +90,14 @@ function bones_ahoy() {
   add_action( 'widgets_init', 'bones_register_sidebars' );
 
   // cleaning up random code around images
-  add_filter( 'the_content', 'bones_filter_ptags_on_images' );
+  add_filter( 'the_content', 'filter_ptags_on_images' );
   // cleaning up excerpt
-  add_filter( 'excerpt_more', 'bones_excerpt_more' );
+  add_filter( 'excerpt_more', 'rem_excerpt_more' );
 
 } /* end bones ahoy */
 
 // let's get this party started
-add_action( 'after_setup_theme', 'bones_ahoy' );
+add_action( 'after_setup_theme', 'start_up_theme' );
 
 
 /************* OEMBED SIZE OPTIONS *************/
@@ -124,26 +111,6 @@ if ( ! isset( $content_width ) ) {
 // Thumbnail sizes
 add_image_size( 'bones-thumb-600', 600, 150, true );
 add_image_size( 'bones-thumb-300', 300, 100, true );
-
-/*
-to add more sizes, simply copy a line from above
-and change the dimensions & name. As long as you
-upload a "featured image" as large as the biggest
-set width or height, all the other sizes will be
-auto-cropped.
-
-To call a different size, simply change the text
-inside the thumbnail function.
-
-For example, to call the 300 x 100 sized image,
-we would use the function:
-<?php the_post_thumbnail( 'bones-thumb-300' ); ?>
-for the 600 x 150 image:
-<?php the_post_thumbnail( 'bones-thumb-600' ); ?>
-
-You can change the names and dimensions to whatever
-you like. Enjoy!
-*/
 
 add_filter( 'image_size_names_choose', 'bones_custom_image_sizes' );
 
@@ -161,43 +128,6 @@ when you add media to your content blocks. If you add more image sizes,
 duplicate one of the lines in the array and name it according to your
 new image size.
 */
-
-/************* THEME CUSTOMIZE *********************/
-
-/* 
-  A good tutorial for creating your own Sections, Controls and Settings:
-  http://code.tutsplus.com/series/a-guide-to-the-wordpress-theme-customizer--wp-33722
-  
-  Good articles on modifying the default options:
-  http://natko.com/changing-default-wordpress-theme-customization-api-sections/
-  http://code.tutsplus.com/tutorials/digging-into-the-theme-customizer-components--wp-27162
-  
-  To do:
-  - Create a js for the postmessage transport method
-  - Create some sanitize functions to sanitize inputs
-  - Create some boilerplate Sections, Controls and Settings
-*/
-
-function bones_theme_customizer($wp_customize) {
-  // $wp_customize calls go here.
-  //
-  // Uncomment the below lines to remove the default customize sections 
-
-  // $wp_customize->remove_section('title_tagline');
-  // $wp_customize->remove_section('colors');
-  // $wp_customize->remove_section('background_image');
-  // $wp_customize->remove_section('static_front_page');
-  // $wp_customize->remove_section('nav');
-
-  // Uncomment the below lines to remove the default controls
-  // $wp_customize->remove_control('blogdescription');
-  
-  // Uncomment the following to change the default section titles
-  // $wp_customize->get_section('colors')->title = __( 'Theme Colors' );
-  // $wp_customize->get_section('background_image')->title = __( 'Images' );
-}
-
-add_action( 'customize_register', 'bones_theme_customizer' );
 
 /************* ACTIVE SIDEBARS ********************/
 
@@ -245,8 +175,8 @@ function bones_register_sidebars() {
 // Comment Layout
 function bones_comments( $comment, $args, $depth ) {
    $GLOBALS['comment'] = $comment; ?>
-  <div id="comment-<?php comment_ID(); ?>" <?php comment_class('cf'); ?>>
-    <article  class="cf">
+  <div id="comment-<?php comment_ID(); ?>">
+    <article  class="comment">
       <header class="comment-author vcard">
         <?php
         /*
@@ -261,19 +191,19 @@ function bones_comments( $comment, $args, $depth ) {
         ?>
         <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=40" class="load-gravatar avatar avatar-48 photo" height="40" width="40" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
         <?php // end custom gravatar call ?>
-        <?php printf(__( '<cite class="fn">%1$s</cite> %2$s', 'bonestheme' ), get_comment_author_link(), edit_comment_link(__( '(Edit)', 'bonestheme' ),'  ','') ) ?>
-        <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y', 'bonestheme' )); ?> </a></time>
-
+        <span>
+            <?php printf(__( '<cite class="fn">%1$s</cite> %2$s', 'bonestheme' ), get_comment_author_link(), edit_comment_link(__( '(Edit)', 'bonestheme' ),'  ','') ) ?>
+            <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y', 'bonestheme' )); ?> </a></time>
+        </span>
       </header>
       <?php if ($comment->comment_approved == '0') : ?>
-        <div class="alert alert-info">
+        <div class="alert-box">
           <p><?php _e( 'Your comment is awaiting moderation.', 'bonestheme' ) ?></p>
         </div>
       <?php endif; ?>
-      <section class="comment_content cf">
+      <section class="comment_content">
         <?php comment_text() ?>
       </section>
-      <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
     </article>
   <?php // </li> is added by WordPress automatically ?>
 <?php

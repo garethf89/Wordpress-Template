@@ -1,30 +1,20 @@
-<?php
-/*
- * CUSTOM POST TYPE TAXONOMY TEMPLATE
- *
- * This is the custom post type taxonomy template. If you edit the custom taxonomy name,
- * you've got to change the name of this template to reflect that name change.
- *
- * For Example, if your custom taxonomy is called "register_taxonomy('shoes')",
- * then your template name should be taxonomy-shoes.php
- *
- * For more info: http://codex.wordpress.org/Post_Type_Templates#Displaying_Custom_Taxonomies
-*/
-?>
-
 <?php get_header(); ?>
 
-			<div id="content">
+			<div id="content" class="fixed-nav row">
+                
+                 <!-- Header -->
+                <div class="large-12 columns">
+                    <h1>Site name</h1>
+                    <hr>
+                </div>
 
-				<div id="inner-content" class="wrap cf">
-
-						<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+                <main id="main" class="columns large-12" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<h1 class="archive-title h2"><span><?php _e( 'Posts Categorized:', 'bonestheme' ); ?></span> <?php single_cat_title(); ?></h1>
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
+							<article id="post-<?php the_ID(); ?>"  role="article">
 
 								<header class="article-header">
 
@@ -52,7 +42,7 @@
 
 							<?php else : ?>
 
-									<article id="post-not-found" class="hentry cf">
+									<article id="post-not-found" class="hentry">
 										<header class="article-header">
 											<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
 										</header>
@@ -67,10 +57,6 @@
 							<?php endif; ?>
 
 						</main>
-
-						<?php get_sidebar(); ?>
-
-				</div>
 
 			</div>
 

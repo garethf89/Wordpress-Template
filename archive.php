@@ -1,10 +1,15 @@
 <?php get_header(); ?>
 
-			<div id="content">
+			<div id="content" class="fixed-nav row">
+                
+                 <!-- Header -->
+                <div class="large-12 columns">
+                    <h1>Site name</h1>
+                    <hr>
+                </div>
 
-				<div id="inner-content" class="wrap cf">
 
-						<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+				<main id="main" class="columns large-9" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<?php if (is_category()) { ?>
 								<h1 class="archive-title h2">
@@ -43,7 +48,7 @@
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
+							<article id="post-<?php the_ID(); ?>" role="article">
 
 								<header class="entry-header article-header">
 
@@ -59,7 +64,7 @@
 
 								</header>
 
-								<section class="entry-content cf">
+								<section class="entry-content">
 
 									<?php the_post_thumbnail( 'bones-thumb-300' ); ?>
 
@@ -79,7 +84,7 @@
 
 							<?php else : ?>
 
-									<article id="post-not-found" class="hentry cf">
+									<article id="post-not-found" class="hentry">
 										<header class="article-header">
 											<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
 										</header>
@@ -96,8 +101,6 @@
 						</main>
 
 					<?php get_sidebar(); ?>
-
-				</div>
 
 			</div>
 
