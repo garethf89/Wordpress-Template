@@ -38,6 +38,9 @@
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
 
-#content.fixed-nav {
-  margin-top: 2.8125rem;
+
+.no-js{
+    #content.fixed-nav {
+      margin-top: 2.8125rem;
+    }
 }

@@ -7,10 +7,26 @@ module.exports = {
         },
     },
     css: {
-        files: ['css/*.css', 'css/*.scss'],
-        tasks: ['sass', 'concat:css', 'cssmin'],
+        files: ['css/*.css', 'scss/*.scss', 'scss/*/*.scss','!scss/app.scss','!≈'],
+        tasks: ['sass:dist', 'sass:admin', 'autoprefixer', 'cssmin:my_css'],
         options: {
             spawn: false,
+            livereload: true
         },
+    },
+    cssFoundation: {
+        files: ['scss/app.scss','scss/_settings.scss'],
+        tasks: ['sass:foundation', 'autoprefixer', 'cssmin:foundation'],
+        options: {
+            spawn: false,
+            livereload: true
+        },
+    },
+    php: {
+        files: ['*.php','../*.php'],
+        options: {
+            spawn: false,
+            livereload: true
+        }
     }
 };
