@@ -9,7 +9,7 @@
     </div>
 
     
-    <main id="main" class="columns large-9 " role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+    <main id="main" class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

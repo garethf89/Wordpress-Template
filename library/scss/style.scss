@@ -29,6 +29,12 @@ the whole project.
 // import mixins
 @import "partials/mixins";
 
+//Suzy
+
+@import "../bower_components/susy/sass/susy";
+@import "partials/grid";
+
+
 /*********************
 BASE (MOBILE) SIZE
 This are the mobile styles. It's what people see on their phones. If

@@ -48,3 +48,9 @@ probably best not to use it. I mean, were you going to anyway? */
 }
 
 
+/* Text Indent */
+@mixin text-indent(){
+    text-indent: 400%;
+    white-space: nowrap;
+    overflow: hidden;    
+}

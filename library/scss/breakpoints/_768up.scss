@@ -1,3 +1,34 @@
+/* Top Bar */
+
+.toggle-topbar{
+    display: none;
+}
+
+/* Top Header Bar */
+.header{
+    
+    .top-bar{
+
+        .top-bar-section{
+            
+            display: block;
+            float:right;
+            clear: none;
+            
+             ul{
+                li{
+                   padding:0 0.9em; 
+                   float: left;
+                }
+            }
+            
+        }
+    }
+    
+}
+
+
+
 /* Comments */
 .comment_content{
    padding-left:4em;

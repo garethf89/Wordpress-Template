@@ -1,0 +1,42 @@
+$total-columns: 12; // 10 columns
+$container-style: fluid;
+$max-grid-size: 64em;
+
+$susy: (
+  global-box-sizing: border-box,
+  columns: 12,
+  container: 64em,
+  gutters: 1/4
+);
+
+@include border-box-sizing;
+
+/* Main Section */
+
+#content{
+    @include container($max-grid-size);
+}
+
+.main{
+    
+    @include span(9 of $total-columns);
+    
+    .article{
+        @include span(12 of 12 narrow);
+    }
+}
+
+.sidebar{
+   @include span(3 of $total-columns last); 
+}
+
+/* Footer */
+
+footer{
+    @include container($max-grid-size);
+    clear: both;
+}
+
+.inner-footer{
+    @include span($total-columns of $total-columns);
+}

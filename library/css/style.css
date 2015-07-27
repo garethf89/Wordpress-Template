@@ -538,6 +538,53 @@ BOX SIZING
 /* @include box-sizing(border-box); */
 /* NOTE: value of "padding-box" is only supported in Gecko. So
 probably best not to use it. I mean, were you going to anyway? */
+/* Text Indent */
+*, *:before, *:after {
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* Main Section */
+#content {
+  max-width: 64em;
+  margin-left: auto;
+  margin-right: auto; }
+  #content:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+.main {
+  width: 74.57627%;
+  float: left;
+  margin-right: 1.69492%; }
+  .main .article {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0; }
+
+.sidebar {
+  width: 23.72881%;
+  float: right;
+  margin-right: 0; }
+
+/* Footer */
+footer {
+  max-width: 64em;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both; }
+  footer:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+.inner-footer {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0; }
+
 /*********************
 BASE (MOBILE) SIZE
 This are the mobile styles. It's what people see on their phones. If
@@ -545,8 +592,63 @@ you set a great foundation, you won't need to add too many styles in
 the other stylesheets. Remember, keep it light: Speed is Important.
 *********************/
 /* Top Bar */
-.top-bar .name p a {
-  width: auto; }
+/* Top Header Bar */
+.header {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #000;
+  overflow: hidden; }
+  .header:after {
+    content: " ";
+    display: block;
+    clear: both; }
+  .header .fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    left: 0; }
+  .header .top-bar {
+    color: #fff; }
+    .header .top-bar ul li {
+      float: left;
+      padding: 0 0.9em; }
+      .header .top-bar ul li p {
+        margin: 0; }
+      .header .top-bar ul li a {
+        color: #fff;
+        text-decoration: none; }
+    .header .top-bar .title-area {
+      width: 57.62712%;
+      float: left;
+      margin-right: 1.69492%; }
+    .header .top-bar .menu-icon {
+      text-indent: 400%;
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+      width: 2.25em; }
+      .header .top-bar .menu-icon:before {
+        content: "";
+        position: absolute;
+        left: 1em;
+        top: 0.15em;
+        width: 100%;
+        height: .15em;
+        background: #fff;
+        box-shadow: 0 .40em 0 0 #fff,0 .8em 0 0 #fff; }
+      .header .top-bar .menu-icon:hover {
+        cursor: pointer; }
+    .header .top-bar.expanded .top-bar-section {
+      display: block; }
+    .header .top-bar .top-bar-section {
+      display: none;
+      clear: both;
+      overflow: hidden; }
+      .header .top-bar .top-bar-section ul li {
+        padding: .5em 1em;
+        float: none; }
 
 /* Comments */
 .avatar {
@@ -573,6 +675,19 @@ in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
 *********************/
 @media only screen and (min-width: 768px) {
+  /* Top Bar */
+  .toggle-topbar {
+    display: none; }
+
+  /* Top Header Bar */
+  .header .top-bar .top-bar-section {
+    display: block;
+    float: right;
+    clear: none; }
+    .header .top-bar .top-bar-section ul li {
+      padding: 0 0.9em;
+      float: left; }
+
   /* Comments */
   .comment_content {
     padding-left: 4em; }

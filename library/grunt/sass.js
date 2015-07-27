@@ -13,7 +13,7 @@ module.exports = {
                 }
             ]
     },
-    foundation: {
+    /* foundation: {
 	    options: {
 		    compass:true
 	    },
@@ -26,7 +26,7 @@ module.exports = {
                 ext: ".css"
                 }
             ]
-    },
+    }, */
     admin: {
 	    options: {
 		    compass:true

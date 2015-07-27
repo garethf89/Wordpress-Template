@@ -9,7 +9,7 @@
     </div>
 
 
-    <main id="main" class="columns large-12 " role="main" itemscope itemprop="mainContentOfPage">
+    <main id="main" class="main" role="main" itemscope itemprop="mainContentOfPage">
 
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

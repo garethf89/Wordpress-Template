@@ -44,19 +44,19 @@
 
 		<div id="container">
             
-        <header class="fixed" role="banner" itemscope itemtype="http://schema.org/WPHeader">    
+        <header class="header clearfix" role="banner" itemscope itemtype="http://schema.org/WPHeader">    
 
             <nav role="navigation" class="top-bar" data-topbar itemscope itemtype="http://schema.org/SiteNavigationElement">
 
             <ul class="title-area">
                 
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                
                 <li class="name">
                 <p id="logo" class="h1" itemscope itemtype="http://schema.org/Organization"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
                 </li>
-                
-                
-                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+
             </ul>
 
               <section class="top-bar-section">

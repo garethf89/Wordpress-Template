@@ -56,6 +56,3 @@ loadGravatars();
 $(document).on('click','.toggle-topbar', function(){
        $('.top-bar').toggleClass('expanded');
 });
-// Foundation JavaScript
-// Documentation can be found at: http://foundation.zurb.com/docs
-$(document).foundation();
