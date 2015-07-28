@@ -38,7 +38,7 @@
         }
         
         .title-area{
-            @include span(7 of $total-columns);  
+            @include span(7);  
         }
         
         .menu-icon{

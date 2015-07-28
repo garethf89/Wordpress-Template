@@ -1,6 +1,4 @@
-$total-columns: 12; // 10 columns
 $container-style: fluid;
-$max-grid-size: 64em;
 
 $susy: (
   global-box-sizing: border-box,
@@ -14,29 +12,33 @@ $susy: (
 /* Main Section */
 
 #content{
-    @include container($max-grid-size);
+    @include container();
 }
 
-.main{
+main{
     
-    @include span(9 of $total-columns);
+    @include span(12);
+    
+   .two-column & {
+        @include span(9);
+    }
     
     .article{
-        @include span(12 of 12 narrow);
+        @include span(12 narrow);
     }
 }
 
 .sidebar{
-   @include span(3 of $total-columns last); 
+   @include span(3 last); 
 }
 
 /* Footer */
 
 footer{
-    @include container($max-grid-size);
+    @include container();
     clear: both;
 }
 
 .inner-footer{
-    @include span($total-columns of $total-columns);
+    @include span(12);
 }

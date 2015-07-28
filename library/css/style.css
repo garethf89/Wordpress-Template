@@ -553,11 +553,16 @@ probably best not to use it. I mean, were you going to anyway? */
     display: block;
     clear: both; }
 
-.main {
-  width: 74.57627%;
+main {
+  width: 100%;
   float: left;
-  margin-right: 1.69492%; }
-  .main .article {
+  margin-left: 0;
+  margin-right: 0; }
+  .two-column main {
+    width: 74.57627%;
+    float: left;
+    margin-right: 1.69492%; }
+  main .article {
     width: 100%;
     float: left;
     margin-left: 0;
