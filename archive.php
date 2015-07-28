@@ -1,15 +1,10 @@
 <?php get_header(); ?>
 
-			<div id="content" class="fixed-nav row">
+			<div id="content" class="fixed-nav">
                 
-                 <!-- Header -->
-                <div class="large-12 columns">
-                    <h1>Site name</h1>
-                    <hr>
-                </div>
+                <?php include_once('/partials/top-header.php'); ?>
 
-
-				<main id="main" class="columns large-9" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+				<main id="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<?php if (is_category()) { ?>
 								<h1 class="archive-title h2">

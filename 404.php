@@ -3,7 +3,7 @@
         <div id="content" class="fixed-nav row">
 
 
-					<main id="main" class="large-10 columns" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+					<main id="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 						<article id="post-not-found">
 

@@ -1,15 +1,12 @@
 <?php get_header(); ?>
 
-    <div id="content" class="fixed-nav row">
+    <div id="content" class="fixed-nav">
                
             <!-- Header -->
-            <div class="large-12 columns">
-                <h1>Site name</h1>
-                <hr>
-            </div>
+             <?php include_once('/partials/top-header.php'); ?>
                 
             <!-- Main -->                    
-            <main id="main" class="large-9 columns" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">  
+            <main id="main"role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">  
                                 
                 <!-- LOOP -->
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>

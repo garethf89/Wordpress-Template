@@ -3,12 +3,9 @@
 <div id="content" class="fixed-nav row">
 
     <!-- Header -->
-    <div class="large-12 columns">
-        <h1>Site name</h1>
-        <hr>
-    </div>
+     <?php include_once('/partials/top-header.php'); ?>
 
-    <main id="main" class="large-9 columns" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+    <main id="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -18,7 +15,7 @@
 
         <?php else : ?>
 
-        <article id="post-not-found" class="large-12 columns">
+        <article id="post-not-found">
             <header class="article-header">
                 <h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
             </header>

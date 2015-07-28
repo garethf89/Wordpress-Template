@@ -3,12 +3,9 @@
 			<div id="content" class="fixed-nav row">
                 
                  <!-- Header -->
-                <div class="large-12 columns">
-                    <h1>Site name</h1>
-                    <hr>
-                </div>
-
-                <main id="main" class="columns large-12" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+                 <?php include_once('/partials/top-header.php'); ?>
+                    
+                <main id="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<h1 class="archive-title h2"><span><?php _e( 'Posts Categorized:', 'bonestheme' ); ?></span> <?php single_cat_title(); ?></h1>
 

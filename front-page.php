@@ -1,15 +1,11 @@
 <?php get_header(); ?>
 
-<div id="content" class="fixed-nav row">
+<div id="content" class="fixed-nav">
 
     <!-- Header -->
-    <div class="large-12 columns">
-        <h1>Site name</h1>
-        <hr>
-    </div>
+    <?php include_once('/partials/top-header.php'); ?>
 
-
-    <main id="main" class="main" role="main" itemscope itemprop="mainContentOfPage">
+    <main id="main" role="main" itemscope itemprop="mainContentOfPage">
 
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
