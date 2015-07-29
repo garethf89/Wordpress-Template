@@ -10,7 +10,6 @@ function updateViewportDimensions() {
 // setting the viewport width
 var viewport = updateViewportDimensions();
 
-
 /*
  * Throttle Resize-triggered Events
  * Wrap your actions in this function to throttle the frequency of firing them off, for better performance, esp. on mobile.
@@ -24,9 +23,6 @@ var waitForFinalEvent = (function () {
 		timers[uniqueId] = setTimeout(callback, ms);
 	};
 })();
-
-// how long to wait before deciding the resize has stopped, in ms. Around 50-100 should work ok.
-var timeToWaitForLast = 100;
 
 /*
  * We're going to swap out the gravatars.
@@ -51,8 +47,18 @@ function loadGravatars() {
 
 loadGravatars();
 
-// Foundation JavaScript
-// Documentation can be found at: http://foundation.zurb.com/docs
+// Top bar menu toggle
 $(document).on('click','.toggle-topbar', function(){
        $('.top-bar').toggleClass('expanded');
+});
+
+$(document).ready(function(){
+
+    //Sticky menu
+    var stickyElements = document.getElementsByClassName('sticky');
+
+    for (var i = stickyElements.length - 1; i >= 0; i--) {
+        Stickyfill.add(stickyElements[i]);
+    }
+    console.log(stickyElements);
 });

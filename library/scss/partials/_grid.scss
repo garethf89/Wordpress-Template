@@ -3,16 +3,22 @@ $container-style: fluid;
 $susy: (
   global-box-sizing: border-box,
   columns: 12,
-  container: 64em,
+  container: 90%,
   gutters: 1/4
 );
 
 @include border-box-sizing;
 
+
+
 /* Main Section */
 
 #content{
     @include container();
+    
+    @include breakpoint($desktop) {
+        @include container(64em);
+    }
 }
 
 main{

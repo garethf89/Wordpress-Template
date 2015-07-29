@@ -6,6 +6,10 @@
     "susy": "~2.2.5",
     "fastclick": "~1.0.6",
     "jquery": "~2.1.4",
-    "modernizr": "~2.8.3"
+    "modernizr": "~2.8.3",
+    "Stickyfill": "~1.1.2"
+  },
+  "devDependencies": {
+    "breakpoint-sass": "~2.6.1"
   }
 }

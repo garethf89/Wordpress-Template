@@ -1,0 +1,30 @@
+/* Comments */
+.avatar{
+    display: none;
+}
+
+/* Comments */
+@include breakpoint($tablet) {
+    .comment_content{
+       padding-left:4em;
+    }
+
+    .comment{
+        margin:0 0 2em
+    }
+
+    .avatar{
+        display: inline-block;
+        margin:0 1em 0 0;
+    }
+
+    .comment-author span{
+        vertical-align: top;
+        display: inline-block;   
+    }
+
+    .comment-author span time{
+        display: block;   
+        font-size: 0.8em;
+    }
+}

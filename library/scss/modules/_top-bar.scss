@@ -1,29 +1,29 @@
-/* Top Bar */
-
 /* Top Header Bar */
 .header{
     
    @include container(100%); 
     
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    
     background: #000;
     overflow: hidden;
     
-    .fixed{
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 99;
-        left: 0;
-    }
-    
     .top-bar{
+        
+        @include container();
+        
+        @include breakpoint($tablet) {
+            @include container(64em);
+        }
         
         color:#fff;
         
         ul{
             li{
                 float:left;
-                padding:0 0.9em;
+                padding:0 0 0 0.9em;
                 
                 p{
                     margin:0;  
@@ -76,18 +76,30 @@
             clear: both;
             overflow: hidden;
             
+            @include breakpoint($tablet) {
+                display: block;
+                float:right;
+                clear: none;
+            }
+            
             ul{
                 li{
                    padding:.5em 1em; 
                    float: none;
+                    
+                    @include breakpoint($tablet) {
+                        padding:0 0.9em; 
+                        float: left;
+                    }
+                    
                 }
             }
         }
     }
     
-}
-
-/* Comments */
-.avatar{
-    display: none;
+    @include breakpoint($tablet) {
+        .toggle-topbar{
+            display: none;
+        }
+    }
 }

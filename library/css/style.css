@@ -6,6 +6,9 @@ Author: Gareth Ferguson
 Stylesheet: Main Stylesheet
 ******************************************************************/
 /*********************
+Breakpoint
+*********************/
+/*********************
 IMPORTING PARTIALS
 These files are needed at the beginning so that we establish all
 our mixins, functions, and variables that we'll be using across
@@ -545,13 +548,22 @@ probably best not to use it. I mean, were you going to anyway? */
 
 /* Main Section */
 #content {
-  max-width: 64em;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto; }
   #content:after {
     content: " ";
     display: block;
     clear: both; }
+  @media (min-width: 1030px) {
+    #content {
+      max-width: 64em;
+      margin-left: auto;
+      margin-right: auto; }
+      #content:after {
+        content: " ";
+        display: block;
+        clear: both; } }
 
 main {
   width: 100%;
@@ -575,7 +587,7 @@ main {
 
 /* Footer */
 footer {
-  max-width: 64em;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
   clear: both; }
@@ -591,34 +603,43 @@ footer {
   margin-right: 0; }
 
 /*********************
-BASE (MOBILE) SIZE
-This are the mobile styles. It's what people see on their phones. If
-you set a great foundation, you won't need to add too many styles in
-the other stylesheets. Remember, keep it light: Speed is Important.
+MODULES
 *********************/
-/* Top Bar */
 /* Top Header Bar */
 .header {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   background: #000;
   overflow: hidden; }
   .header:after {
     content: " ";
     display: block;
     clear: both; }
-  .header .fixed {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 99;
-    left: 0; }
   .header .top-bar {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     color: #fff; }
+    .header .top-bar:after {
+      content: " ";
+      display: block;
+      clear: both; }
+    @media (min-width: 768px) {
+      .header .top-bar {
+        max-width: 64em;
+        margin-left: auto;
+        margin-right: auto; }
+        .header .top-bar:after {
+          content: " ";
+          display: block;
+          clear: both; } }
     .header .top-bar ul li {
       float: left;
-      padding: 0 0.9em; }
+      padding: 0 0 0 0.9em; }
       .header .top-bar ul li p {
         margin: 0; }
       .header .top-bar ul li a {
@@ -651,49 +672,28 @@ the other stylesheets. Remember, keep it light: Speed is Important.
       display: none;
       clear: both;
       overflow: hidden; }
+      @media (min-width: 768px) {
+        .header .top-bar .top-bar-section {
+          display: block;
+          float: right;
+          clear: none; } }
       .header .top-bar .top-bar-section ul li {
         padding: .5em 1em;
         float: none; }
+        @media (min-width: 768px) {
+          .header .top-bar .top-bar-section ul li {
+            padding: 0 0.9em;
+            float: left; } }
+  @media (min-width: 768px) {
+    .header .toggle-topbar {
+      display: none; } }
 
 /* Comments */
 .avatar {
   display: none; }
 
-/*********************
-LARGER MOBILE DEVICES
-This is for devices like the Galaxy Note or something that's
-larger than an iPhone but smaller than a tablet. Let's call them
-tweeners.
-*********************/
-@media only screen and (min-width: 481px) {
-  /******************************************************************
-  Site Name:
-  Author:
-  
-  Stylesheet: 481px and Up Stylesheet
-  
-  ******************************************************************/ }
-/*********************
-TABLET & SMALLER LAPTOPS
-This is the average viewing window. So Desktops, Laptops, and
-in general anyone not viewing on a mobile device. Here's where
-you can add resource intensive styles.
-*********************/
-@media only screen and (min-width: 768px) {
-  /* Top Bar */
-  .toggle-topbar {
-    display: none; }
-
-  /* Top Header Bar */
-  .header .top-bar .top-bar-section {
-    display: block;
-    float: right;
-    clear: none; }
-    .header .top-bar .top-bar-section ul li {
-      padding: 0 0.9em;
-      float: left; }
-
-  /* Comments */
+/* Comments */
+@media (min-width: 768px) {
   .comment_content {
     padding-left: 4em; }
 
@@ -711,33 +711,6 @@ you can add resource intensive styles.
   .comment-author span time {
     display: block;
     font-size: 0.8em; } }
-/*********************
-DESKTOP
-This is the average viewing window. So Desktops, Laptops, and
-in general anyone not viewing on a mobile device. Here's where
-you can add resource intensive styles.
-*********************/
-@media only screen and (min-width: 1030px) {
-  /******************************************************************
-  
-  Stylesheet: Desktop Stylsheet
-  
-  This is the desktop size. It's larger than an iPad so it will only
-  be seen on the Desktop.
-  
-  ******************************************************************/
-  .wrap {
-    width: 1040px; } }
-/*********************
-LARGE VIEWING SIZE
-This is for the larger monitors and possibly full screen viewers.
-*********************/
-@media only screen and (min-width: 1240px) {
-  /******************************************************************
-  
-  Stylesheet: Super Large Monitor Stylesheet
-  
-  ******************************************************************/ }
 /*********************
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with
