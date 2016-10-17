@@ -5,7 +5,7 @@ Built on Suzy template engine for SASS
 
 ## Requirements
 
-  * [Grunt](http://gruntjs.com)
+  * [Gulp](http://gulpjs.com)
   * [Node.js](http://nodejs.org)
   * [bower](http://bower.io): `npm install bower -g`
   * [SASS](http://sass-lang.com)
